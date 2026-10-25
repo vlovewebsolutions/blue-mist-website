@@ -68,6 +68,68 @@ a {
   background: rgba(247, 250, 249, 0.96);
 }
 
+.promo-bar {
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  z-index: 45;
+  background: linear-gradient(90deg, #3d5648 0%, #2a3d34 55%, #4a3a1f 100%);
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.promo-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .55rem 5vw;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.promo-text {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .55rem .85rem;
+  font-size: .9rem;
+  line-height: 1.35;
+}
+.promo-label {
+  display: inline-block;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.promo-message { color: rgba(255,255,255,.92); font-weight: 400; }
+.promo-cta {
+  flex-shrink: 0;
+  padding: .4rem .9rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.35);
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background .25s ease, transform .25s ease;
+}
+.promo-cta:hover {
+  background: rgba(255,255,255,.22);
+  transform: translateY(-1px);
+}
+.hero-tagline {
+  max-width: 16ch;
+}
+
+
+
 .brand {
   display: flex;
   align-items: center;
@@ -154,7 +216,7 @@ a {
   min-height: 100dvh;
   display: grid;
   align-items: end;
-  padding: 7rem 5vw 4.5rem;
+  padding: 9.5rem 5vw 4.5rem;
   color: var(--white);
   overflow: hidden;
 }
@@ -611,7 +673,7 @@ a {
 
   .nav {
     position: fixed;
-    inset: 68px 0 auto;
+    inset: 108px 0 auto;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
@@ -649,9 +711,26 @@ a {
   }
 
   .hero {
-    padding-top: 6.5rem;
+    padding-top: 9.5rem;
     min-height: 92vh;
   }
+
+  .promo-bar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .45rem;
+    padding: .5rem 5vw;
+  }
+
+  .promo-cta {
+    align-self: stretch;
+    text-align: center;
+  }
+
+  .promo-bar {
+    top: 64px;
+  }
+
 
   .strip {
     grid-template-columns: 1fr;
@@ -739,6 +818,8 @@ a {
 .nutrition-cta-line { font-weight: 500; color: var(--ink) !important; }
 .nutrition-actions { margin-top: 1.25rem; }
 .treatment-img-alt { object-position: center 30%; }
+.treatment-img-facial { object-position: center 35%; }
+.treatment-visual img[src="peel.jpeg"] { object-position: center 30%; }
 
 /* ---- Clinic gallery ---- */
 .clinic { padding-top: 2rem; }
@@ -835,4 +916,16 @@ a {
 }
 @media (max-width: 720px) {
   .aesthetic-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ---- Dr. Anil cosmetology (mirrors nutrition layout) ---- */
+.cosmetology .nutrition-photo img { object-position: 50% 12%; }
+.cosmetology {
+  background:
+    radial-gradient(ellipse 55% 40% at 0% 10%, rgba(197,221,227,.5), transparent 50%),
+    linear-gradient(180deg, var(--foam), rgba(240,235,227,.7));
+}
+.nutrition:not(.cosmetology) {
+  border-top: 1px solid rgba(28,42,46,.06);
 }
