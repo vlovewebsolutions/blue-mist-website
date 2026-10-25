@@ -929,3 +929,34 @@ a {
 .nutrition:not(.cosmetology) {
   border-top: 1px solid rgba(28,42,46,.06);
 }
+
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .45rem;
+  text-align: right;
+}
+.insta-link {
+  font-weight: 600;
+  color: var(--sage-deep);
+  letter-spacing: .02em;
+}
+.insta-link:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+.visit-meta a {
+  color: var(--sage-deep);
+  font-weight: 600;
+}
+.visit-meta a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 720px) {
+  .footer-social {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
