@@ -3,6 +3,18 @@ const toggle = document.getElementById("menuToggle");
 const nav = document.getElementById("nav");
 const promo = document.getElementById("promo");
 
+const headerSpacer = document.getElementById("headerSpacer");
+
+function syncHeaderOffset() {
+  if (!header) return;
+  const h = Math.ceil(header.getBoundingClientRect().height);
+  document.documentElement.style.setProperty("--header-offset", `${h}px`);
+  if (headerSpacer) headerSpacer.style.height = `${h}px`;
+}
+
+syncHeaderOffset();
+window.addEventListener("resize", syncHeaderOffset);
+
 window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 20);
 });
@@ -59,6 +71,7 @@ function isOfferActive(offer) {
 function hidePromo() {
   promo?.setAttribute("hidden", "");
   document.body.classList.remove("has-promo");
+  syncHeaderOffset();
 }
 
 function showPromo(offer) {
@@ -72,11 +85,12 @@ function showPromo(offer) {
   if (message) message.textContent = offer.message?.trim() || "";
   if (cta) {
     cta.textContent = offer.ctaText?.trim() || "View offer";
-    cta.href = offer.ctaUrl?.trim() || "https://wa.me/919821289111";
+    cta.href = offer.ctaUrl?.trim() || "https://wa.me/917827455800";
   }
 
   promo.removeAttribute("hidden");
   document.body.classList.add("has-promo");
+  syncHeaderOffset();
 }
 
 async function loadOfferBanner() {
@@ -96,6 +110,7 @@ async function loadOfferBanner() {
     // Keep the HTML fallback text visible if fetch fails (e.g. file:// preview)
     promo.removeAttribute("hidden");
     document.body.classList.add("has-promo");
+    syncHeaderOffset();
   }
 }
 
